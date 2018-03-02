@@ -7,7 +7,6 @@ NLOGSmartUI's second version
 
 ### TODO LIST
 * [x] Complete base work
-* [ ] Support multi language (I delete this plan to busy.)
 * [x] Add setting (Function on/off, set popup message, etc...) 
 
 ### Function
@@ -18,6 +17,6 @@ NLOGSmartUI's second version
 * [x] See now month's calendar
 * [x] Calculator
 * [x] Speaker
-* [ ] Move island(Compatibility with ```SimpleArea```)
-* [ ] Move Flat world(Compatibility with ```SimpleArea```)
-* [ ] See money and money's rank(Compatibility with ```EconomyAPI```)
+* [x] Move island(Compatibility with ```SimpleArea```)
+* [x] Move Flat world(Compatibility with ```SimpleArea```)
+* [x] See money and player's rank(Compatibility with ```EconomyAPI```)
