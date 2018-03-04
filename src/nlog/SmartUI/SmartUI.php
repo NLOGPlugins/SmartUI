@@ -16,7 +16,7 @@ class SmartUI extends PluginBase implements Listener {
     /** @var SmartUI|null */
     private static $instance = null;
 
-    public static $prefix = "§b§l[SmartUI_src] §r§7";
+    public static $prefix = "§b§l[SmartUI] §r§7";
 
     public static function getInstance(): ?SmartUI {
         return static::$instance;
@@ -44,7 +44,7 @@ class SmartUI extends PluginBase implements Listener {
         $this->getServer()->getCommandMap()->register("smartui", new OpenUICommand($this));
 
         $this->updateManager->checkUpdate();
-        $this->getLogger()->notice("SmartUI_src 플러그인이 활성화되었습니다.");
+        $this->getLogger()->notice("SmartUI 플러그인이 활성화되었습니다.");
     }
 
     public function getSettings(): ?Settings {

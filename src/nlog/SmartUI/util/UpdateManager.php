@@ -22,7 +22,7 @@ class UpdateManager {
 
     public function __construct(SmartUI $plugin) {
         $this->plugin = $plugin;
-        $this->url = 'https://raw.githubusercontent.com/nnnlog/SmartUI_src/master/update.json';
+        $this->url = 'https://raw.githubusercontent.com/nnnlog/SmartUI/master/update.json';
     }
 
     public function checkUpdate() {
@@ -41,8 +41,8 @@ class UpdateManager {
             }
             if ($result['force-update']) {
                 if ($this->plugin->getSettings()->allowAutoUpdater()) {
-                    $host = 'https://raw.githubusercontent.com/nnnlog/SmartUI_src/master/SmartUI_src.phar';
-                    $path = $this->plugin->getServer()->getPluginPath() . "SmartUI_src.phar";
+                    $host = 'https://raw.githubusercontent.com/nnnlog/SmartUI/master/SmartUI.phar';
+                    $path = $this->plugin->getServer()->getPluginPath() . "SmartUI.phar";
                     if (file_exists($path)) {
                         $this->rmdir_ok($path);
                     }
