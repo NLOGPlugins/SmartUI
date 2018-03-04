@@ -20,7 +20,7 @@ class OpenUICommand extends PluginCommand{
 	
 	public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
 		if (!$sender instanceof Player) {
-			$sender->sendMessage(Translate::translate("prefix") . Translate::translate("command@run-in-game"));
+			$sender->sendMessage(SmartUI::$prefix . "인게임에서 실행하세요.");
 			return true;
 		}
 		$this->getPlugin()->getFormManager()->getMainMenuForm()->sendPacket($sender);
