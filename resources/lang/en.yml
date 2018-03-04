@@ -1,0 +1,46 @@
+# Prefix
+prefix: "§b§l[SmartUI] §f"
+
+
+# Command
+command@label: "ui"
+command@run-in-game: "Use command in game"
+command@usage: "/ui"
+command@description: "Open main menu"
+command@permission: true
+
+
+# Menu
+main-menu@name: "BlockTag menu"
+main-menu@title: "- BlockTag menu"
+main-menu@open-menu: ">> Open menu <<"
+main-menu@exit: ">> Close <<"
+
+list-menu@name: "List menu"
+list-menu@title: "- List menu"
+list-menu@content: "Choose want function"
+list-menu@button-format: "§6§l[ §c{%0} §6]"
+
+
+# Function
+spawn-function@name: "Spawn"
+spawn-function@spawn-message: "You move to spawnpoint"
+
+sendmoney-function@name: "Send Money"
+sendmoney-function@title: "- Send Money"
+sendmoney-function@input-name: "Username"
+sendmoney-function@input-placeholder-name: "Write username..."
+sendmoney-function@input-money: "Money"
+sendmoney-function@input-placeholder-money: "Write money..."
+sendmoney-function@no-account: "Given player doesn't exist."
+sendmoney-function@money-not-numeric: "You must write down money as a natural number."
+sendmoney-function@money-not-have: "Money is scarce."
+sendmoney-function@sucess: "You sent the money successfully.\nOriginal money : {%0}, Send money : {%1}, Left money : {%2}"
+sendmoney-function@recieve-money: "{%0} sent {%1} money to you."
+
+warp-menu@name: "Warp"
+warp-menu@title: "- Warp menu"
+warp-menu@content: "Choose"
+warp-menu@button-format: "§6>> §a{%0} §6<<"
+warp-menu@sucess: "You move to {%0}."
+warp-menu@not-exist-warp: "{%0} doesn't exist."
