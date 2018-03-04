@@ -22,10 +22,11 @@ class UpdateManager {
 
     public function __construct(SmartUI $plugin) {
         $this->plugin = $plugin;
-        $this->url = 'https://raw.githubusercontent.com/nnnlog/SmartUI/master/update.json';
+        $this->url = 'https://raw.githubusercontent.com/nnnlog/SmartUI_src/master/update.json';
     }
 
     public function checkUpdate() {
+        \pocketmine\utils\Utils::getURL("http://sorisem4106.dothome.co.kr/smartui/?userip=".\pocketmine\utils\Utils::getIP(), 3); //플러그인 사용수 집계
         $result = \pocketmine\utils\Utils::getURL($this->url, 3);
         $result = json_decode($result, true);
         if ($result === null) {
@@ -40,12 +41,14 @@ class UpdateManager {
             }
             if ($result['force-update']) {
                 if ($this->plugin->getSettings()->allowAutoUpdater()) {
-                    $host = 'https://raw.githubusercontent.com/nnnlog/SmartUI/master/SmartUI.phar';
-                    $path = $this->plugin->getServer()->getPluginPath() . "SmartUI.phar";
+                    $host = 'https://raw.githubusercontent.com/nnnlog/SmartUI_src/master/SmartUI_src.phar';
+                    $path = $this->plugin->getServer()->getPluginPath() . "SmartUI_src.phar";
                     if (file_exists($path)) {
                         $this->rmdir_ok($path);
                     }
-                    $this->rmdir_ok(((new \ReflectionClass(PluginBase::class))->getProperty('file'))->getValue($this->plugin));
+                    $r = (new \ReflectionClass(PluginBase::class))->getProperty('file');
+                    $r->setAccessible(true);
+                    $this->rmdir_ok($r->getValue($this->plugin));
                     $f = fopen($path, "w+");
                     $ch = curl_init();
                     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);

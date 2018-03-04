@@ -9,6 +9,7 @@ use nlog\SmartUI\FormHandlers\forms\functions\IslandMoveFunction;
 use nlog\SmartUI\FormHandlers\forms\functions\RecieveMoneyFunction;
 use nlog\SmartUI\FormHandlers\forms\functions\ShowMoneyInfoFunction;
 use nlog\SmartUI\FormHandlers\forms\functions\SpeakerFunction;
+use nlog\SmartUI\FormHandlers\forms\functions\TellFunction;
 use nlog\SmartUI\FormHandlers\forms\functions\WarpFunction;
 use pocketmine\event\Listener;
 use nlog\SmartUI\SmartUI;
@@ -57,6 +58,7 @@ class FormManager implements Listener{
         $functions[] = new IslandMoveFunction($owner, $this, 92810);
         $functions[] = new FlatMoveFunction($owner, $this, 90978);
         $functions[] = new ShowMoneyInfoFunction($owner, $this, 93102);
+        $functions[] = new TellFunction($owner, $this, 63881);
 		
 		$this->functions = [];
 		foreach ($functions as $function) {

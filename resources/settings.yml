@@ -20,6 +20,7 @@ toggle:
  moveisland: "on"
  moveflat: "on"
  moneyinfo: "on"
+ tell: "on"
 
 speaker:
  # 필요한 돈

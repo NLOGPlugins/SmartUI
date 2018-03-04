@@ -8,10 +8,12 @@ NLOGSmartUI's second version
 ### TODO LIST
 * [x] Complete base work
 * [x] Add setting (Function on/off, set popup message, etc...) 
+* [ ] Support multi lang
 
 ### Function
 * [x] Goto server's spawn
 * [x] Warp(Compatibility with ```SWarp```)
+* [x] Tell
 * [x] Send money
 * [x] Check recieve money(Compatibility with ```Send money Function```)
 * [x] See now month's calendar
@@ -20,3 +22,6 @@ NLOGSmartUI's second version
 * [x] Move island(Compatibility with ```SimpleArea```)
 * [x] Move Flat world(Compatibility with ```SimpleArea```)
 * [x] See money and player's rank(Compatibility with ```EconomyAPI```)
+
+### Etc
+* [x] 플러그인 사용 집계

@@ -1,5 +1,7 @@
 {
-    "version": "2.0.0",
-    "message": [],
+    "version": "2.1.0",
+    "message": [
+		"2.0.0": "사용 집계 추가와 귓속말 기능 추가"
+	],
     "force-update": true
 }
