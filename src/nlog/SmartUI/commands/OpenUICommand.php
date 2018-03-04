@@ -3,10 +3,8 @@
 namespace nlog\SmartUI\commands;
 
 use pocketmine\command\PluginCommand;
-use nlog\SmartUI\util\Translate;
 use nlog\SmartUI\SmartUI;
 use pocketmine\command\CommandSender;
-use pocketmine\command\Command;
 use pocketmine\Player;
 
 class OpenUICommand extends PluginCommand{

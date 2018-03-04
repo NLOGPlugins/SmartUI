@@ -5,7 +5,6 @@ namespace nlog\SmartUI;
 use nlog\SmartUI\util\UpdateManager;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
-use nlog\SmartUI\util\Translate;
 use nlog\SmartUI\util\Settings;
 use nlog\SmartUI\FormHandlers\FormManager;
 use nlog\SmartUI\commands\OpenUICommand;

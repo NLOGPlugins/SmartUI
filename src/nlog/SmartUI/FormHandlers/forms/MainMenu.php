@@ -5,7 +5,6 @@ namespace nlog\SmartUI\FormHandlers\forms;
 use nlog\SmartUI\FormHandlers\SmartUIForm;
 use pocketmine\Player;
 use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
-use nlog\SmartUI\util\Translate;
 
 class MainMenu extends SmartUIForm {
 	
