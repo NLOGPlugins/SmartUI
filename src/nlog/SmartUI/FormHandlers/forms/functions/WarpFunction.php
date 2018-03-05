@@ -49,7 +49,7 @@ class WarpFunction extends SmartUIForm implements NeedPluginInterface{
 		$json['content'] = "§b§l워프할 곳의 버튼을 눌러주세요.";
 		$json["buttons"] = [];
 		$name = [];
-		foreach (SWarp::getInstance()->getAllWarp() as $name => $warp) {
+		foreach (SWarp::getInstance()->getAllWarp() as $warp) {
 			$name[] = $warp->getName();
 			$json['buttons'][] = ['text' => "§7▷ {$warp->getName()}"]; //TODO: add image
 		}

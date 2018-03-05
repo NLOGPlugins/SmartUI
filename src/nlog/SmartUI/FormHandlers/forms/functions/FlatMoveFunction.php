@@ -92,7 +92,7 @@ class FlatMoveFunction extends SmartUIForm implements NeedPluginInterface {
             $z = $areaSection->get("startZ");
             $y = $level->getHighestBlockAt($x, $z) + 2;
             $player->teleport(new Position($x, $y, $z, $level));
-            $player->sendMessage(SmartUI::$prefix . "{$id}번 섬으로 이동하였습니다.");
+            $player->sendMessage(SmartUI::$prefix . "{$id}번 땅으로 이동하였습니다.");
         }
         unset($this->flatList[$player->getName()]);
     }

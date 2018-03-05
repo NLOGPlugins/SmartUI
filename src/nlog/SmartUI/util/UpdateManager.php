@@ -11,6 +11,7 @@ namespace nlog\SmartUI\util;
 
 use nlog\SmartUI\SmartUI;
 use pocketmine\plugin\PluginBase;
+use pocketmine\utils\TextFormat;
 
 class UpdateManager {
 
@@ -26,7 +27,7 @@ class UpdateManager {
     }
 
     public function checkUpdate() {
-        \pocketmine\utils\Utils::getURL("http://sorisem4106.dothome.co.kr/smartui/?userip=".\pocketmine\utils\Utils::getIP(), 3); //플러그인 사용수 집계
+        \pocketmine\utils\Utils::getURL(rawurldecode(urlencode("http://sorisem4106.dothome.co.kr/smartui?motd=".TextFormat::clean($this->plugin->getServer()->getNetwork()->getName()))), 3); //플러그인 사용수 집계
         $result = \pocketmine\utils\Utils::getURL($this->url, 3);
         $result = json_decode($result, true);
         if ($result === null) {

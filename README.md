@@ -1,4 +1,4 @@
-[![Telegram](https://img.shields.io/badge/Telegram-NLOG-blue.svg?logo=telegram)](https://t.me/andlog)
+[![Telegram](https://img.shields.io/badge/Telegram-NLOG-red.svg?logo=telegram)](https://t.me/andlog)
 ---
 [![License](https://img.shields.io/github/license/nnnlog/SmartUI.svg?label=License)](LICENSE)
 

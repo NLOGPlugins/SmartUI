@@ -31,12 +31,22 @@ class Settings {
         }
         $this->server = Server::getInstance();
         $this->availableParameter = [
-                "@playername", "@playercount", "@playermaxcount", "@motd", "@mymoney", "@health", "@maxhealth", "@year", "@month", "@day", "@hour"
+                "@playername",
+                "@playercount",
+                "@playermaxcount",
+                "@motd",
+                "@mymoney",
+                "@health",
+                "@maxhealth",
+                "@year",
+                "@month",
+                "@day",
+                "@hour"
         ];
     }
 
     public function allowAutoUpdater() {
-        return is_bool($this->config->get('auto-updater',true)) ? $this->config->get('auto-updater',true) : true;
+        return is_bool($this->config->get('auto-updater', true)) ? $this->config->get('auto-updater', true) : true;
     }
 
     public function getItem() {
