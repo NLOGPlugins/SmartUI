@@ -65,10 +65,10 @@ class IslandMoveFunction extends SmartUIForm implements NeedPluginInterface {
             return self::NOT_HAVE_ISLAND;
         }
         foreach ($islands as $id => $xyz) {
+            $this->islandList[$player->getName()][] = $id;
             $ids[] = "§7> {$id}";
             $json['buttons'][] = ['text' => "§7▷ {$id}"]; //TODO: add image
         }
-        $this->islandList[$player->getName()] = $ids;
 
         return json_encode($json);
     }

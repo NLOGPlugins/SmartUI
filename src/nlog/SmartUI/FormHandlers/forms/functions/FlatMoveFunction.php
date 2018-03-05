@@ -65,10 +65,10 @@ class FlatMoveFunction extends SmartUIForm implements NeedPluginInterface {
             return self::NOT_HAVE_FLAT;
         }
         foreach ($flats as $id => $xyz) {
+            $this->flatList[$player->getName()][] = $id;
             $ids[] = "§7> {$id}";
             $json['buttons'][] = ['text' => "§7▷ {$id}"]; //TODO: add image
         }
-        $this->flatList[$player->getName()] = $ids;
 
         return json_encode($json);
     }
