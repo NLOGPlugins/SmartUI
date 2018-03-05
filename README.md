@@ -22,6 +22,7 @@ NLOGSmartUI's second version
 * [x] Move island(Compatibility with ```SimpleArea```)
 * [x] Move Flat world(Compatibility with ```SimpleArea```)
 * [x] See money and player's rank(Compatibility with ```EconomyAPI```)
+* [ ] Simplearea Land Command (매물목록, 구매, 정보, 이동 등... Compatibility with ```SimpleArea```)
 
 ### Etc
 * [x] 플러그인 사용 집계
