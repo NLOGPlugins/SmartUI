@@ -75,6 +75,7 @@ class UpdateManager {
     private function rmdir_ok($dir) {
         if (is_file($dir)) {
             @unlink($dir);
+            return;
         }
         $dirs = dir($dir);
         while(false !== ($entry = $dirs->read())) {
