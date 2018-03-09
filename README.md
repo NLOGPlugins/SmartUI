@@ -9,7 +9,7 @@ NLOGSmartUI's second version
 * [x] Complete base work
 * [x] Add setting (Function on/off, set popup message, etc...) 
 * [ ] Support multi lang
-* [ ] Complete function, and add more function (New idea to me)
+* [ ] Complete function, and add more function (Give new idea to me)
 
 ### Function
 * [x] Goto server's spawn
