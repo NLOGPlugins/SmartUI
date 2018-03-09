@@ -13,7 +13,7 @@ class OpenUICommand extends PluginCommand{
 		parent::__construct("ui", $owner);
 		$this->setLabel("ui");
 		$this->setPermission(true);
-		$this->setDescription("ui를 엽니다.");
+		$this->setDescription("SmartUI를 오픈합니다.");
 	}
 	
 	public function execute(CommandSender $sender, string $commandLabel, array $args): bool {

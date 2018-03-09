@@ -36,11 +36,11 @@ class UpdateManager {
         }
         if (version_compare($this->plugin->getDescription()->getVersion(), $result['version']) < 0) {
             $this->plugin->getLogger()->notice("새로운 버전이 나왔습니다. 현재 버전 : {$this->plugin->getDescription()->getVersion()}, {$result['version']}");
-            $updateMsg = $result['message'][$this->plugin->getDescription()->getVersion()] ?? null;
+            $updateMsg = $result['chanelog'][$this->plugin->getDescription()->getVersion()]['message'] ?? null;
             if ($updateMsg !== null) {
                 $this->plugin->getLogger()->notice("업데이트 내용 : {$updateMsg}");
             }
-            if ($result['force-update']) {
+            if ($updateMsg = $result['chanelog'][$this->plugin->getDescription()->getVersion()]['force-update'] ?? true) {
                 if ($this->plugin->getSettings()->allowAutoUpdater()) {
                     $host = 'https://raw.githubusercontent.com/nnnlog/SmartUI/master/SmartUI.phar';
                     $path = $this->plugin->getServer()->getPluginPath() . "SmartUI.phar";
@@ -51,16 +51,21 @@ class UpdateManager {
                     $r->setAccessible(true);
                     $this->rmdir_ok($r->getValue($this->plugin));
                     $f = fopen($path, "w+");
-                    $ch = curl_init();
-                    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-                    curl_setopt($ch, CURLOPT_URL, $host);
-                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                    curl_setopt($ch, CURLOPT_FILE, $f);
+                    curl_setopt_array($ch = curl_init(), [
+                            CURLOPT_CONNECTTIMEOUT => 5,
+                            CURLOPT_URL => $host,
+                            CURLOPT_SSL_VERIFYPEER => false,
+                            CURLOPT_SSL_VERIFYHOST => 2,
+                            CURLOPT_RETURNTRANSFER => 1,
+                            CURLOPT_FILE => $f
+                    ]);
                     curl_exec($ch);
                     curl_close($ch);
                     $this->plugin->getLogger()->notice("새버전으로 업데이트 되었습니다. 재부팅 시 적용됩니다.");
+                    if ($this->plugin->getSettings()->rebootWhenServerRestart()) {
+                        $this->plugin->getLogger()->critical("업데이트 적용을 위해 서버가 꺼집니다...");
+                        $this->plugin->getServer()->shutdown();
+                    }
                 }
                 $this->plugin->getLogger()->notice("새버전으로 업데이트가 필요합니다. 플러그인이 비활성화됩니다.");
                 $this->plugin->getPluginLoader()->disablePlugin($this->plugin);

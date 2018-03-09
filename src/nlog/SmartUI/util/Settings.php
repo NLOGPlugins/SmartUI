@@ -49,6 +49,10 @@ class Settings {
         return is_bool($this->config->get('auto-updater', true)) ? $this->config->get('auto-updater', true) : true;
     }
 
+    public function rebootWhenServerRestart() {
+        return is_bool($this->config->get('reboot-when-update', true)) ? $this->config->get('reboot-when-update', true) : true;
+    }
+
     public function getItem() {
         return $this->config->get("item", "345:0");
     }

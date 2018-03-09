@@ -11,13 +11,18 @@ use nlog\SmartUI\commands\OpenUICommand;
 
 class SmartUI extends PluginBase implements Listener {
 
+
     const SETTING_VERSION = 1;
 
     /** @var SmartUI|null */
     private static $instance = null;
 
+    /** @var string  */
     public static $prefix = "§b§l[SmartUI] §r§7";
 
+    /**
+     * @return SmartUI|null
+     */
     public static function getInstance(): ?SmartUI {
         return static::$instance;
     }
@@ -44,13 +49,20 @@ class SmartUI extends PluginBase implements Listener {
         $this->getServer()->getCommandMap()->register("smartui", new OpenUICommand($this));
 
         $this->updateManager->checkUpdate();
+        $this->updateManager = null;
         $this->getLogger()->notice("SmartUI 플러그인이 활성화되었습니다.");
     }
 
+    /**
+     * @return Settings|null
+     */
     public function getSettings(): ?Settings {
         return $this->setting;
     }
 
+    /**
+     * @return FormManager|null
+     */
     public function getFormManager(): ?FormManager {
         return $this->formManager;
     }

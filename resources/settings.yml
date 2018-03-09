@@ -6,6 +6,8 @@ item: "345:0"
 
 # 자동 업데이트 여부입니다.
 auto-updater: true
+# 자동 업데이트 시 서버 종료 여부입니다.
+reboot-when-update: true
 
 # If you don't write "on", function will turn off.
 # on을 적지 않으면 기능은 꺼집니다.
