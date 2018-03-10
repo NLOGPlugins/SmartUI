@@ -7,7 +7,6 @@ use nlog\SmartUI\SmartUI;
 use pocketmine\entity\projectile\Throwable;
 use pocketmine\Player;
 use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
-use onebone\economyapi\EconomyAPI;
 
 class CalculatorFunction extends SmartUIForm{
 	

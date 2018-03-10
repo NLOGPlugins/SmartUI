@@ -36,10 +36,11 @@ class FormManager implements Listener{
 	/** @var SmartUIForm */
 	private $ListMenu;
 
-	/**
-	 * 
-	 * @param SmartUI $owner
-	 */
+    /**
+     * FormManager constructor.
+     *
+     * @param SmartUI $owner
+     */
 	public function __construct(SmartUI $owner) {
 		$this->owner = $owner;
 		$owner->getServer()->getPluginManager()->registerEvents($this, $owner);
@@ -48,6 +49,7 @@ class FormManager implements Listener{
 		$this->ListMenu = new ListMenu($owner, $this, 9182);
 		
 		$functions = [];
+		//TODO: Implements FormID
 		$functions[] = new SpawnFunction($owner, $this, 39388);
 		$functions[] = new WarpFunction($owner, $this, 92838);
 		$functions[] = new SpeakerFunction($owner, $this, 93821);
@@ -134,6 +136,7 @@ class FormManager implements Listener{
 	public function onInteract(PlayerInteractEvent $ev) {
 	    if (!$this->owner->getSettings()->canUseInWorld($ev->getPlayer()->getLevel())) {
 	        $ev->getPlayer()->sendMessage(SmartUI::$prefix . "사용하실 수 없습니다.");
+	        return;
         }
 		if ($ev->getItem()->getId() . ":" . $ev->getItem()->getDamage() === $this->owner->getSettings()->getItem()) {
 			$this->MainMenu->sendPacket($ev->getPlayer());

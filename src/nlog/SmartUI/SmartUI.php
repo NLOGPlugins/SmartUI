@@ -4,12 +4,11 @@ namespace nlog\SmartUI;
 
 use nlog\SmartUI\util\UpdateManager;
 use pocketmine\plugin\PluginBase;
-use pocketmine\event\Listener;
 use nlog\SmartUI\util\Settings;
 use nlog\SmartUI\FormHandlers\FormManager;
 use nlog\SmartUI\commands\OpenUICommand;
 
-class SmartUI extends PluginBase implements Listener {
+class SmartUI extends PluginBase{
 
 
     const SETTING_VERSION = 1;
@@ -17,7 +16,7 @@ class SmartUI extends PluginBase implements Listener {
     /** @var SmartUI|null */
     private static $instance = null;
 
-    /** @var string  */
+    /** @var string */
     public static $prefix = "§b§l[SmartUI] §r§7";
 
     /**
@@ -33,11 +32,8 @@ class SmartUI extends PluginBase implements Listener {
     /** @var FormManager|null */
     private $formManager = null;
 
-    /** @var UpdateManager|null */
-    private $updateManager = null;
-
     public function onLoad() {
-        self::$instance = $this;
+        static::$instance = $this;
     }
 
     public function onEnable() {
@@ -45,12 +41,12 @@ class SmartUI extends PluginBase implements Listener {
         $this->saveResource("settings.yml");
         $this->setting = new Settings($this->getDataFolder() . "settings.yml", $this);
         $this->formManager = new FormManager($this);
-        $this->updateManager = new UpdateManager($this);
-        $this->getServer()->getCommandMap()->register("smartui", new OpenUICommand($this));
+        $updateManager = new UpdateManager($this);
+        $updateManager->checkUpdate();
+        $updateManager = null;
 
-        $this->updateManager->checkUpdate();
-        $this->updateManager = null;
-        $this->getLogger()->notice("SmartUI 플러그인이 활성화되었습니다.");
+        $this->getServer()->getCommandMap()->register("smartui", new OpenUICommand($this));
+        $this->getServer()->getLogger()->info("§bSmartUI §ehas been enabled.");
     }
 
     /**

@@ -11,7 +11,6 @@ class OpenUICommand extends PluginCommand{
 	
 	public function __construct(SmartUI $owner) {
 		parent::__construct("ui", $owner);
-		$this->setLabel("ui");
 		$this->setPermission(true);
 		$this->setDescription("SmartUI를 오픈합니다.");
 	}
@@ -21,6 +20,10 @@ class OpenUICommand extends PluginCommand{
 			$sender->sendMessage(SmartUI::$prefix . "인게임에서 실행하세요.");
 			return true;
 		}
+        if (!$this->getPlugin()->getSettings()->canUseInWorld($sender->getLevel())) {
+            $sender->sendMessage(SmartUI::$prefix . "사용하실 수 없습니다.");
+            return true;
+        }
 		$this->getPlugin()->getFormManager()->getMainMenuForm()->sendPacket($sender);
 		return true;
 	}

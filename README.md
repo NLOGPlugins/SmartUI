@@ -14,7 +14,8 @@ NLOGSmartUI's second version
 ### Function
 * [x] Goto server's spawn
 * [x] Warp(Compatibility with ```SWarp```)
-* [x] Tell
+* [x] Tell (TODO: log chat)
+* [ ] Add spam system on Tell function
 * [x] Send money
 * [x] Check recieve money(Compatibility with ```Send money Function```)
 * [x] See now month's calendar
@@ -23,7 +24,4 @@ NLOGSmartUI's second version
 * [x] Move island(Compatibility with ```SimpleArea```)
 * [x] Move Flat world(Compatibility with ```SimpleArea```)
 * [x] See money and player's rank(Compatibility with ```EconomyAPI```)
-* [ ] Simplearea Land Command (매물목록, 구매, 정보, 이동 등... Compatibility with ```SimpleArea```)
-
-### Etc
-* [x] 플러그인 사용 집계
+* [ ] Simplearea Land Command (SellingLand List, Buy, Info, Move, etc... Compatibility with ```SimpleArea```)

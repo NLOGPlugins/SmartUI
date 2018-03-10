@@ -1,5 +1,5 @@
 {
-    "version": "2.2.1",
+    "version": "2.2.2",
     "changelog": {
         "2.0.0": {
             "message": "사용 집계 추가와 귓속말 기능 추가",
@@ -15,6 +15,10 @@
         },
         "2.2.0": {
             "message": "Phar 최적화",
+            "force-update": true
+        },
+        "2.2.1": {
+            "message": "귓속말 기능에 옵션추가, 코드 일부 수정",
             "force-update": true
         }
     }
