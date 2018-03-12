@@ -10,6 +10,7 @@ NLOGSmartUI's second version
 * [x] Add setting (Function on/off, set popup message, etc...) 
 * [ ] Support multi lang
 * [ ] Complete function, and add more function (Give new idea to me)
+* [ ] 글씨 테마 개선
 
 ### Function
 * [x] Goto server's spawn
