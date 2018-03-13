@@ -26,3 +26,10 @@ NLOGSmartUI's second version
 * [x] Move Flat world(Compatibility with ```SimpleArea```)
 * [x] See money and player's rank(Compatibility with ```EconomyAPI```)
 * [ ] Simplearea Land Command (SellingLand List, Buy, Info, Move, etc... Compatibility with ```SimpleArea```)
+
+### Etc
+* [x] 집계기능
+* [ ] 번역기능(Translation)
+
+#### 집계기능 안내
+```집계기능은 서버의 IP와 서버의 MOTD만 수집합니다. 이는 불법이 아니라고 마루님이 말씀하셨습니다.```
