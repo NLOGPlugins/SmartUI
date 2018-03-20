@@ -46,7 +46,7 @@ class ShowMoneyInfoFunction extends SmartUIForm implements NeedPluginInterface {
         }
         $json = [];
         $json['type'] = 'modal';
-        $json['title'] = "- 받은 돈 보기";
+        $json['title'] = "- 돈 정보 보기";
         $json['content'] = $str;
         $json["button1"] = "≫ 메뉴로 돌아가기 ≪";
         $json["button2"] = "≫ 창 닫기 ≪";
