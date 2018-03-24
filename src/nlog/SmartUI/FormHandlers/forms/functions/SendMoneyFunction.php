@@ -72,7 +72,8 @@ class SendMoneyFunction extends SmartUIForm implements NeedPluginInterface{
 		$left = Utils::koreanWonFormat($economy->myMoney($player));
 		$money = Utils::koreanWonFormat($money);
 		$player->sendMessage(SmartUI::$prefix . "성공적으로 돈을 보냈습니다. 원래 돈 : {$orgin}, 보낸 돈 : {$money}, 남은 돈 ; {$left}");
-		if ($recieve = $this->owner->getServer()->getPlayerExact($name) instanceof Player) {
+		$recieve = $this->owner->getServer()->getPlayerExact($name);
+		if ($recieve instanceof Player) {
 			$recieve->sendMessage(SmartUI::$prefix . "{$player->getName()}님이 당신에게 {$money}을 보냈습니다.");
 		}
 	}
