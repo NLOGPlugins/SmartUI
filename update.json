@@ -1,5 +1,5 @@
 {
-    "version": "2.2.2",
+    "version": "2.2.3",
     "changelog": {
         "2.0.0": {
             "message": "사용 집계 추가와 귓속말 기능 추가",
@@ -19,6 +19,10 @@
         },
         "2.2.1": {
             "message": "귓속말 기능에 옵션추가, 코드 일부 수정",
+            "force-update": true
+        },
+        "2.2.2": {
+            "message": "Bump API version",
             "force-update": true
         }
     }
