@@ -41,9 +41,7 @@ class SmartUI extends PluginBase{
         $this->saveResource("settings.yml");
         $this->setting = new Settings($this->getDataFolder() . "settings.yml", $this);
         $this->formManager = new FormManager($this);
-        $updateManager = new UpdateManager($this);
-        $updateManager->checkUpdate();
-        $updateManager = null;
+        (new UpdateManager($this))->checkUpdate();
 
         $this->getServer()->getCommandMap()->register("smartui", new OpenUICommand($this));
         $this->getServer()->getLogger()->info("§bSmartUI §ehas been enabled.");
