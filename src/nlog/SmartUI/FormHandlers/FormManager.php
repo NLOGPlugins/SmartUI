@@ -144,23 +144,15 @@ class FormManager implements Listener{
 	}
 	
 	public function onDataPacketRecieve(DataPacketReceiveEvent $ev) {
-		if ($ev->getPacket() instanceof ModalFormResponsePacket) {
-			$this->onHandleForm($ev->getPacket(), $ev->getPlayer());
-		}
-	}
-	
-	/**
-	 * 
-	 * @param ModalFormResponsePacket $pk
-	 * @param Player $player
-	 */
-	public function onHandleForm(ModalFormResponsePacket $pk, Player $player) {
-		if ($this->MainMenu->getFormId() === $pk->formId) {
-			$this->MainMenu->handleRecieve($player, json_decode($pk->formData, true));
-		}elseif ($this->ListMenu->getFormId() === $pk->formId) {
-			$this->ListMenu->handleRecieve($player, json_decode($pk->formData, true));
-		}elseif ($this->getFunction($pk->formId) instanceof SmartUIForm) {
-			$this->getFunction($pk->formId)->handleRecieve($player, json_decode($pk->formData, true));
+		if ($pk = $ev->getPacket() instanceof ModalFormResponsePacket) {
+			$player = $ev->getPlayer();
+			if ($this->MainMenu->getFormId() === $pk->formId) {
+				$this->MainMenu->handleRecieve($player, json_decode($pk->formData, true));
+			}elseif ($this->ListMenu->getFormId() === $pk->formId) {
+				$this->ListMenu->handleRecieve($player, json_decode($pk->formData, true));
+			}elseif ($this->getFunction($pk->formId) instanceof SmartUIForm) {
+				$this->getFunction($pk->formId)->handleRecieve($player, json_decode($pk->formData, true));
+			}
 		}
 	}
 	
