@@ -10,9 +10,8 @@ namespace nlog\SmartUI\util;
 
 class Utils
 {
-	
-	public static function koreanWonFormat(int $money): string{
-		$str = '';
+
+	public static function koreanWonFormat(int $money): string {
 		$elements = [];
 		if($money >= 1000000000000){
 			$elements[] = floor($money / 1000000000000) . "조";
@@ -31,5 +30,5 @@ class Utils
 		}
 		return implode(" ", $elements) . "원";
 	}
-	
+
 }

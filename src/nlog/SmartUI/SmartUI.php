@@ -32,11 +32,11 @@ class SmartUI extends PluginBase{
     /** @var FormManager|null */
     private $formManager = null;
 
-    public function onLoad() {
+    public function onLoad(): void {
         static::$instance = $this;
     }
 
-    public function onEnable() {
+    public function onEnable(): void {
         @mkdir($this->getDataFolder());
         $this->saveResource("settings.yml");
         $this->setting = new Settings($this->getDataFolder() . "settings.yml", $this);

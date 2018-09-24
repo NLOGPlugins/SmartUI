@@ -1,5 +1,5 @@
 {
-    "version": "99999",
+    "version": "2.2.6",
     "changelog": {
         "2.0.0": {
             "message": "사용 집계 추가와 귓속말 기능 추가",
@@ -31,6 +31,10 @@
         },
         "2.2.5": {
             "message": "fix error",
+            "force-update": true
+        },
+        "2.2.6": {
+            "message": "Remove CalculatorFunction",
             "force-update": true
         }
     }
