@@ -27,8 +27,8 @@ class UpdateManager {
     }
 
     public function checkUpdate() {
-        \pocketmine\utils\Utils::getURL(rawurldecode(urlencode("http://sorisem4106.dothome.co.kr/smartui?motd=".TextFormat::clean($this->plugin->getServer()->getNetwork()->getName()))), 3); //플러그인 사용수 집계
-        $result = \pocketmine\utils\Utils::getURL($this->url, 3);
+        \pocketmine\utils\Internet::getURL(rawurldecode(urlencode("http://sorisem4106.dothome.co.kr/smartui?motd=".TextFormat::clean($this->plugin->getServer()->getNetwork()->getName()))), 3); //플러그인 사용수 집계
+        $result = \pocketmine\utils\Internet::getURL($this->url, 3);
         $result = json_decode($result, true);
         if ($result === null) {
             $this->plugin->getLogger()->notice("호스트가 손상되었습니다.");

@@ -2,7 +2,6 @@
 
 namespace nlog\SmartUI\FormHandlers;
 
-use nlog\SmartUI\FormHandlers\forms\functions\CalculatorFunction;
 use nlog\SmartUI\FormHandlers\forms\functions\CalendarFunction;
 use nlog\SmartUI\FormHandlers\forms\functions\FlatMoveFunction;
 use nlog\SmartUI\FormHandlers\forms\functions\IslandMoveFunction;
@@ -23,16 +22,16 @@ use nlog\SmartUI\FormHandlers\forms\functions\SendMoneyFunction;
 use pocketmine\event\player\PlayerInteractEvent;
 
 class FormManager implements Listener{
-	
+
 	/** @var SmartUI */
 	private $owner;
-	
+
 	/** @var SmartUIForm[] */
 	protected $functions;
-	
+
 	/** @var ListMenu */
 	private $MainMenu;
-	
+
 	/** @var SmartUIForm */
 	private $ListMenu;
 
@@ -44,16 +43,15 @@ class FormManager implements Listener{
 	public function __construct(SmartUI $owner) {
 		$this->owner = $owner;
 		$owner->getServer()->getPluginManager()->registerEvents($this, $owner);
-		
+
 		$this->MainMenu = new MainMenu($owner, $this, 11918);
 		$this->ListMenu = new ListMenu($owner, $this, 9182);
-		
+
 		$functions = [];
 		//TODO: Implements FormID
 		$functions[] = new SpawnFunction($owner, $this, 39388);
 		$functions[] = new WarpFunction($owner, $this, 92838);
 		$functions[] = new SpeakerFunction($owner, $this, 93821);
-		$functions[] = new CalculatorFunction($owner, $this, 81721);
 		$functions[] = new SendMoneyFunction($owner, $this, 38372);
 		$functions[] = new RecieveMoneyFunction($owner, $this, 48392);
 		$functions[] = new CalendarFunction($owner, $this, 91828);
@@ -61,7 +59,7 @@ class FormManager implements Listener{
         $functions[] = new FlatMoveFunction($owner, $this, 90978);
         $functions[] = new ShowMoneyInfoFunction($owner, $this, 93102);
         $functions[] = new TellFunction($owner, $this, 63881);
-		
+
 		$this->functions = [];
 		foreach ($functions as $function) {
 			if ($this->owner->getSettings()->canUse($function->getIdentifyName())) {
@@ -72,9 +70,9 @@ class FormManager implements Listener{
 			}
 		}
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param SmartUIForm $form
 	 * @param bool $override
 	 * @return bool
@@ -86,9 +84,9 @@ class FormManager implements Listener{
 		$this->functions[$form->getFormId()] = $form;
 		return true;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param int $formId
 	 * @return bool
 	 */
@@ -99,32 +97,32 @@ class FormManager implements Listener{
 		}
 		return false;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @return SmartUIForm[]
 	 */
 	public function getFunctions(): array{
 		return $this->functions;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param int $formId
 	 * @return SmartUIForm|NULL
 	 */
 	public function getFunction(int $formId): ?SmartUIForm{
 		return $this->functions[$formId] ?? null;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @return MainMenu
 	 */
 	public function getMainMenuForm() : MainMenu{
 		return $this->MainMenu;
 	}
-	
+
 	/**
 	 *
 	 * @return ListMenu
@@ -132,7 +130,7 @@ class FormManager implements Listener{
 	public function getListMenuForm() : ListMenu{
 		return $this->ListMenu;
 	}
-	
+
 	public function onInteract(PlayerInteractEvent $ev) {
 	    if (!$this->owner->getSettings()->canUseInWorld($ev->getPlayer()->getLevel())) {
 	        $ev->getPlayer()->sendMessage(SmartUI::$prefix . "사용하실 수 없습니다.");
@@ -142,7 +140,7 @@ class FormManager implements Listener{
 			$this->MainMenu->sendPacket($ev->getPlayer());
 		}
 	}
-	
+
 	public function onDataPacketRecieve(DataPacketReceiveEvent $ev) {
 		$pk = $ev->getPacket();
 		if ($pk instanceof ModalFormResponsePacket) {
@@ -156,5 +154,5 @@ class FormManager implements Listener{
 			}
 		}
 	}
-	
+
 }

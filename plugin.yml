@@ -1,9 +1,10 @@
 ---
 name: SmartUI
-version: 2.2.5
+version: 2.2.6
 api:
-- 3.0.0-ALPHA11
-- 3.0.0-ALPHA12
+- 4.0.0
+- 3.1.0
+- 3.0.0
 author: nlog
 main: nlog\SmartUI\SmartUI
 ...
