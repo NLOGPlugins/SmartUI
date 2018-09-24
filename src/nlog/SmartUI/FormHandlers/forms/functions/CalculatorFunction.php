@@ -4,6 +4,7 @@ namespace nlog\SmartUI\FormHandlers\forms\functions;
 
 use nlog\SmartUI\FormHandlers\SmartUIForm;
 use nlog\SmartUI\SmartUI;
+use oat\beeme\Parser;
 use pocketmine\entity\projectile\Throwable;
 use pocketmine\Player;
 use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
@@ -48,22 +49,13 @@ class CalculatorFunction extends SmartUIForm{
 			return;
 		}
 		
-		$realpath = $this->owner->getDataFolder() . "temp.yml";
-		if (file_exists($realpath)) {
-			@unlink($realpath);
-		}
-		eval('try{ file_put_contents("'. $realpath . '", yaml_emit(["calc" => ' . $formula . '])); }catch(\Throwable $e){ }');
-		if (!file_exists($realpath)) {
+		$result = (new Parser)->evaluate($formula);
+		
+		if (!$result) {
 			$player->sendMessage(SmartUI::$prefix . "잘못된 수식입니다.");
 			return;
-		}
-		$result = yaml_parse(file_get_contents($realpath))['calc'];
-		if (!is_float($result) && !is_int($result)) {
-			$player->sendMessage(SmartUI::$prefix . "잘못된 수식입니다.");
-			return;
-		}
-		$formula = str_replace(["sqrt", "**"] , ["√", "^"], $formula);
-		$player->sendMessage(SmartUI::$prefix . "결과 : {$formula} = {$result}");
+	    }
+		$player->sendMessage(SmartUI::$prefix . "결과 : {" . $formula . "} = {" . $result . "}");
 	}
 	
 }
