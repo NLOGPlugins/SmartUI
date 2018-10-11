@@ -20,6 +20,7 @@ use nlog\SmartUI\FormHandlers\forms\ListMenu;
 use nlog\SmartUI\FormHandlers\forms\functions\SpawnFunction;
 use nlog\SmartUI\FormHandlers\forms\functions\SendMoneyFunction;
 use pocketmine\event\player\PlayerInteractEvent;
+use pocketmine\event\player\PlayerItemUseEvent;
 
 class FormManager implements Listener{
 
@@ -131,7 +132,7 @@ class FormManager implements Listener{
 		return $this->ListMenu;
 	}
 
-	public function onInteract(PlayerInteractEvent $ev) {
+	public function onInteract(PlayerItemUseEvent $ev) {
 	    if (!$this->owner->getSettings()->canUseInWorld($ev->getPlayer()->getLevel())) {
 	        $ev->getPlayer()->sendMessage(SmartUI::$prefix . "사용하실 수 없습니다.");
 	        return;
