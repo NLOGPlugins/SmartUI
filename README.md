@@ -1,4 +1,4 @@
-[![Telegram](https://img.shields.io/badge/Telegram-NLOG-red.svg?logo=telegram)](https://t.me/andlog)
+[![Telegram](https://img.shields.io/badge/Telegram-NLOG-red.svg?logo=telegram)](https://t.me/nnnlog)
 ---
 [![License](https://img.shields.io/github/license/nnnlog/SmartUI.svg?label=License)](LICENSE)
 
@@ -7,7 +7,6 @@ NLOGSmartUI's second version
 
 ### Etc
 * [x] 설정기능(기능 켜기/끄기, UI 메세지 설정, 기타 등등...) 
-* [ ] 글씨 테마 개선
 
 ### Function
 * [x] 스폰 이동
@@ -21,4 +20,3 @@ NLOGSmartUI's second version
 * [x] 섬 이동(```SimpleArea```와 호환됨)
 * [x] 평야 이동(```SimpleArea```와 호환됨)
 * [x] See money and player's rank(```EconomyAPI```와 호환됨)
-* [ ] ```Simplearea``` 명령어(매물 목록, 구매, 땅 정보, 땅 이동, 기타 등등...)
