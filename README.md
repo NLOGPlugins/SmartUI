@@ -4,6 +4,7 @@
 
 ## SmartUI
 NLOGSmartUI's second version
+* Detail: [SmartUI](https://nnnlog.github.io/projects/smartui)
 
 ### Etc
 * [x] 설정기능(기능 켜기/끄기, UI 메세지 설정, 기타 등등...) 

@@ -1,11 +1,28 @@
 <?php
 
+/**
+ * Copyright (C) 2017-2019   NLOG (엔로그)
+
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 namespace nlog\SmartUI\FormHandlers;
 
 use nlog\SmartUI\FormHandlers\forms\functions\CalendarFunction;
 use nlog\SmartUI\FormHandlers\forms\functions\FlatMoveFunction;
 use nlog\SmartUI\FormHandlers\forms\functions\IslandMoveFunction;
-use nlog\SmartUI\FormHandlers\forms\functions\RecieveMoneyFunction;
+use nlog\SmartUI\FormHandlers\forms\functions\ReceiveMoneyFunction;
 use nlog\SmartUI\FormHandlers\forms\functions\ShowMoneyInfoFunction;
 use nlog\SmartUI\FormHandlers\forms\functions\SpeakerFunction;
 use nlog\SmartUI\FormHandlers\forms\functions\TellFunction;
@@ -54,7 +71,7 @@ class FormManager implements Listener{
 		$functions[] = new WarpFunction($owner, $this, 92838);
 		$functions[] = new SpeakerFunction($owner, $this, 93821);
 		$functions[] = new SendMoneyFunction($owner, $this, 38372);
-		$functions[] = new RecieveMoneyFunction($owner, $this, 48392);
+		$functions[] = new ReceiveMoneyFunction($owner, $this, 48392);
 		$functions[] = new CalendarFunction($owner, $this, 91828);
         $functions[] = new IslandMoveFunction($owner, $this, 92810);
         $functions[] = new FlatMoveFunction($owner, $this, 90978);
@@ -137,21 +154,31 @@ class FormManager implements Listener{
 	        $ev->getPlayer()->sendMessage(SmartUI::$prefix . "사용하실 수 없습니다.");
 	        return;
         }
-		if ($ev->getItem()->getId() . ":" . $ev->getItem()->getDamage() === $this->owner->getSettings()->getItem()) {
+		if ($ev->getItem()->getId() . ":" . $ev->getItem()->getMeta() === $this->owner->getSettings()->getItem()) {
 			$this->MainMenu->sendPacket($ev->getPlayer());
 		}
 	}
 
-	public function onDataPacketRecieve(DataPacketReceiveEvent $ev) {
+	public function onTouch(PlayerItemUseEvent $ev) {
+        if (!$this->owner->getSettings()->canUseInWorld($ev->getPlayer()->getLevel())) {
+            $ev->getPlayer()->sendMessage(SmartUI::$prefix . "사용하실 수 없습니다.");
+            return;
+        }
+        if ($ev->getItem()->getId() . ":" . $ev->getItem()->getMeta() === $this->owner->getSettings()->getItem()) {
+            $this->MainMenu->sendPacket($ev->getPlayer());
+        }
+    }
+
+	public function onDataPacketReceive(DataPacketReceiveEvent $ev) {
 		$pk = $ev->getPacket();
 		if ($pk instanceof ModalFormResponsePacket) {
 			$player = $ev->getPlayer();
 			if ($this->MainMenu->getFormId() === $pk->formId) {
-				$this->MainMenu->handleRecieve($player, json_decode($pk->formData, true));
+				$this->MainMenu->handleReceive($player, json_decode($pk->formData, true));
 			}elseif ($this->ListMenu->getFormId() === $pk->formId) {
-				$this->ListMenu->handleRecieve($player, json_decode($pk->formData, true));
+				$this->ListMenu->handleReceive($player, json_decode($pk->formData, true));
 			}elseif ($this->getFunction($pk->formId) instanceof SmartUIForm) {
-				$this->getFunction($pk->formId)->handleRecieve($player, json_decode($pk->formData, true));
+				$this->getFunction($pk->formId)->handleReceive($player, json_decode($pk->formData, true));
 			}
 		}
 	}

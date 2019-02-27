@@ -1,5 +1,22 @@
 <?php
 
+/**
+ * Copyright (C) 2017-2019   NLOG (엔로그)
+
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 namespace nlog\SmartUI\FormHandlers\forms\functions;
 
 use nlog\SmartUI\FormHandlers\SmartUIForm;
@@ -18,7 +35,7 @@ class SpawnFunction extends SmartUIForm {
 	}
 	
 	public function sendPacket(Player $player) {
-		$dlevel = $this->owner->getServer()->getDefaultLevel();
+		$dlevel = $this->owner->getServer()->getLevelManager()->getDefaultLevel();
 		$pos = new Position($dlevel->getSafeSpawn()->x, $dlevel->getSafeSpawn()->y, $dlevel->getSafeSpawn()->z, $dlevel);
 		$player->teleport($pos);
 		$player->sendMessage(SmartUI::$prefix . "스폰으로 이동하였습니다.");
@@ -28,7 +45,7 @@ class SpawnFunction extends SmartUIForm {
 		//Not need
 	}
 	
-	public function handleRecieve(Player $player, $result) {
+	public function handleReceive(Player $player, $result) {
 		//Not need
 	}
 	

@@ -1,5 +1,22 @@
 <?php
 
+/**
+ * Copyright (C) 2017-2019   NLOG (엔로그)
+
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 namespace nlog\SmartUI\FormHandlers\forms\functions;
 
 use ifteam\SimpleArea\database\area\AreaProvider;
@@ -49,7 +66,7 @@ class FlatMoveFunction extends SmartUIForm implements NeedPluginInterface {
             $pk->formData = $formData;
             $pk->formId = $this->formId;
 
-            $player->dataPacket($pk);
+            $player->sendDataPacket($pk);
         }
     }
 
@@ -73,7 +90,7 @@ class FlatMoveFunction extends SmartUIForm implements NeedPluginInterface {
         return json_encode($json);
     }
 
-    public function handleRecieve(Player $player, $result) {
+    public function handleReceive(Player $player, $result) {
         if ($result === null) {
             unset($this->flatList[$player->getName()]);
             return;
@@ -84,7 +101,7 @@ class FlatMoveFunction extends SmartUIForm implements NeedPluginInterface {
         }
         $id = $this->flatList[$player->getName()][$result];
         $areaSection = AreaProvider::getInstance()->getAreaToId("flat", $id);
-        $level = $this->owner->getServer()->getLevelByName('flat');
+        $level = $this->owner->getServer()->getLevelManager()->getLevelByName('flat');
         if (!$areaSection instanceof AreaSection) {
             $player->sendMessage(SmartUI::$prefix . "평야가 존재하지 않습니다.");
         }else{
