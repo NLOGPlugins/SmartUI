@@ -2,7 +2,6 @@
 
 /**
  * Copyright (C) 2017-2019   NLOG (엔로그)
-
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
  * published by the Free Software Foundation, either version 3 of the
@@ -38,7 +37,6 @@ class UpdateManager {
     }
 
     public function checkUpdate() {
-        \pocketmine\utils\Internet::getURL(rawurldecode(urlencode("http://sorisem4106.dothome.co.kr/smartui?motd=".TextFormat::clean($this->plugin->getServer()->getNetwork()->getName()))), 3); //플러그인 사용수 집계
         $result = \pocketmine\utils\Internet::getURL($this->url, 3);
         $result = json_decode($result, true);
         if ($result === null) {
@@ -56,11 +54,11 @@ class UpdateManager {
                     $host = 'https://raw.githubusercontent.com/nnnlog/SmartUI/master/SmartUI.phar';
                     $path = $this->plugin->getServer()->getPluginPath() . "SmartUI.phar";
                     if (file_exists($path)) {
-                        $this->rmdir_ok($path);
+                        \pocketmine\utils\Utils::recursiveUnlink($path);
                     }
                     $r = (new \ReflectionClass(PluginBase::class))->getProperty('file');
                     $r->setAccessible(true);
-                    $this->rmdir_ok($r->getValue($this->plugin));
+                    \pocketmine\utils\Utils::recursiveUnlink($r->getValue($this->plugin));
                     $f = fopen($path, "w+");
                     curl_setopt_array($ch = curl_init(), [
                             CURLOPT_CONNECTTIMEOUT => 5,
@@ -79,31 +77,12 @@ class UpdateManager {
                     }
                 }
                 $this->plugin->getLogger()->notice("새버전으로 업데이트가 필요합니다. 플러그인이 비활성화됩니다.");
-                $this->plugin->getPluginLoader()->disablePlugin($this->plugin);
+                $this->plugin->getServer()->getPluginManager()->disablePlugin($this->plugin);
                 return;
             }
             return;
-        }else{
+        } else {
             $this->plugin->getLogger()->notice("최신버전입니다.");
         }
-    }
-
-    private function rmdir_ok($dir) {
-        if (is_file($dir)) {
-            @unlink($dir);
-            return;
-        }
-        $dirs = dir($dir);
-        while(false !== ($entry = $dirs->read())) {
-            if(($entry != '.') && ($entry != '..')) {
-                if(is_dir($dir.'/'.$entry)) {
-                    $this->rmdir_ok($dir.'/'.$entry);
-                } else {
-                    @unlink($dir.'/'.$entry);
-                }
-            }
-        }
-        $dirs->close();
-        @rmdir($dir);
     }
 }
