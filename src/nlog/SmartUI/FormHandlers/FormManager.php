@@ -172,7 +172,7 @@ class FormManager implements Listener{
 	public function onDataPacketReceive(DataPacketReceiveEvent $ev) {
 		$pk = $ev->getPacket();
 		if ($pk instanceof ModalFormResponsePacket) {
-			$player = $ev->getPlayer();
+			$player = $ev->getOrigin()->getPlayer();
 			if ($this->MainMenu->getFormId() === $pk->formId) {
 				$this->MainMenu->handleReceive($player, json_decode($pk->formData, true));
 			}elseif ($this->ListMenu->getFormId() === $pk->formId) {
