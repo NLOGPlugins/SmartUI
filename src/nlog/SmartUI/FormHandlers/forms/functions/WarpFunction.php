@@ -67,6 +67,9 @@ class WarpFunction extends SmartUIForm implements NeedPluginInterface{
 		$json["buttons"] = [];
 		$name = [];
 		foreach (SWarp::getInstance()->getAllWarp() as $warp) {
+		    if (!$player->hasPermission($warp->getPermission())) {
+		        continue;
+            }
 			$name[] = $warp->getName();
 			$json['buttons'][] = ['text' => "§7▷ {$warp->getName()}"]; //TODO: add image
 		}
@@ -90,6 +93,9 @@ class WarpFunction extends SmartUIForm implements NeedPluginInterface{
 		}else{
 			$player->sendMessage(SmartUI::$prefix . "{$warpname} 워프로 이동하였습니다.");
 			try{
+                if (!$player->hasPermission($warp->getPermission())) {
+                    throw new WarpException("워프하기 위한 권한이 부족합니다.");
+                }
                 $warp->warp($player);
             }catch (WarpException $e) {
 			    $player->sendMessage(SmartUI::$prefix . $e->getMessage());

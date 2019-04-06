@@ -1,5 +1,5 @@
 {
-    "version": "2.3.2",
+    "version": "2.3.3",
     "changelog": {
         "2.0.0": {
             "message": "사용 집계 추가와 귓속말 기능 추가",
@@ -47,6 +47,10 @@
         },
         "2.3.1": {
             "message": "Apply changes for API 4.0.0",
+            "force-update": false
+        },
+        "2.3.2": {
+            "message": "Pause warp when doesn't have warp permission",
             "force-update": false
         }
     }
