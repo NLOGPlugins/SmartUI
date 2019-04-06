@@ -2,7 +2,6 @@
 
 /**
  * Copyright (C) 2017-2019   NLOG (엔로그)
-
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
  * published by the Free Software Foundation, either version 3 of the
@@ -62,7 +61,7 @@ class IslandMoveFunction extends SmartUIForm implements NeedPluginInterface {
         $formData = $this->getFormData($player);
         if ($formData === self::NOT_HAVE_ISLAND) {
             $player->sendMessage(SmartUI::$prefix . "소유한 섬이 없습니다.");
-        }else{
+        } else {
             $pk->formData = $formData;
             $pk->formId = $this->formId;
 
@@ -104,7 +103,7 @@ class IslandMoveFunction extends SmartUIForm implements NeedPluginInterface {
         $level = $this->owner->getServer()->getLevelManager()->getLevelByName('island');
         if (!$areaSection instanceof AreaSection) {
             $player->sendMessage(SmartUI::$prefix . "섬이 존재하지 않습니다.");
-        }else{
+        } else {
             $center = $areaSection->getCenter();
             $x = $center->x;
             $z = $center->z;

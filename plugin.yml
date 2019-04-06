@@ -2,7 +2,7 @@
 name: SmartUI
 version: 2.3.3
 api:
-- 4.0.0
+  - 4.0.0
 author: nlog
 main: nlog\SmartUI\SmartUI
 ...

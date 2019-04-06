@@ -2,7 +2,6 @@
 
 /**
  * Copyright (C) 2017-2019   NLOG (엔로그)
-
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
  * published by the Free Software Foundation, either version 3 of the
@@ -25,7 +24,7 @@ use pocketmine\plugin\PluginBase;
 use nlog\SmartUI\FormHandlers\FormManager;
 use nlog\SmartUI\commands\OpenUICommand;
 
-class SmartUI extends PluginBase{
+class SmartUI extends PluginBase {
 
 
     const SETTING_VERSION = 1;

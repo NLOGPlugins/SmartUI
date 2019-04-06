@@ -2,7 +2,6 @@
 
 /**
  * Copyright (C) 2017-2019   NLOG (엔로그)
-
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
  * published by the Free Software Foundation, either version 3 of the
@@ -25,28 +24,28 @@ use pocketmine\Player;
 use pocketmine\level\Position;
 
 class SpawnFunction extends SmartUIForm {
-	
-	public static function getName(): string{
-		return "스폰";
-	}
-	
-	public static function getIdentifyName(): string{
-		return "spawn";
-	}
-	
-	public function sendPacket(Player $player) {
-		$dlevel = $this->owner->getServer()->getLevelManager()->getDefaultLevel();
-		$pos = new Position($dlevel->getSafeSpawn()->x, $dlevel->getSafeSpawn()->y, $dlevel->getSafeSpawn()->z, $dlevel);
-		$player->teleport($pos);
-		$player->sendMessage(SmartUI::$prefix . "스폰으로 이동하였습니다.");
-	}
-	
-	protected function getFormData(Player $player) {
-		//Not need
-	}
-	
-	public function handleReceive(Player $player, $result) {
-		//Not need
-	}
-	
+
+    public static function getName(): string {
+        return "스폰";
+    }
+
+    public static function getIdentifyName(): string {
+        return "spawn";
+    }
+
+    public function sendPacket(Player $player) {
+        $dlevel = $this->owner->getServer()->getLevelManager()->getDefaultLevel();
+        $pos = new Position($dlevel->getSafeSpawn()->x, $dlevel->getSafeSpawn()->y, $dlevel->getSafeSpawn()->z, $dlevel);
+        $player->teleport($pos);
+        $player->sendMessage(SmartUI::$prefix . "스폰으로 이동하였습니다.");
+    }
+
+    protected function getFormData(Player $player) {
+        //Not need
+    }
+
+    public function handleReceive(Player $player, $result) {
+        //Not need
+    }
+
 }

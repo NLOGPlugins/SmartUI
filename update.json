@@ -1,57 +1,57 @@
 {
-    "version": "2.3.3",
-    "changelog": {
-        "2.0.0": {
-            "message": "사용 집계 추가와 귓속말 기능 추가",
-            "force-update": true
-        },
-        "2.1.0": {
-            "message": "사용 집계 방식 수정 및 워프,땅,섬이동 오류 수정",
-            "force-update": true
-        },
-        "2.1.1": {
-            "message": "업데이트 체계 변경",
-            "force-update": true
-        },
-        "2.2.0": {
-            "message": "Phar 최적화",
-            "force-update": true
-        },
-        "2.2.1": {
-            "message": "귓속말 기능에 옵션추가, 코드 일부 수정",
-            "force-update": true
-        },
-        "2.2.2": {
-            "message": "Bump API version",
-            "force-update": true
-        },
-        "2.2.4": {
-            "message": "shortage code",
-            "force-update": true
-        },
-        "2.2.5": {
-            "message": "fix error",
-            "force-update": true
-        },
-        "2.2.6": {
-            "message": "Remove CalculatorFunction",
-            "force-update": true
-        },
-        "2.2.7": {
-            "message": "Apply changes for API 4.0.0",
-            "force-update": false
-        },
-        "2.3.0": {
-            "message": "Apply changes for API 4.0.0",
-            "force-update": false
-        },
-        "2.3.1": {
-            "message": "Apply changes for API 4.0.0",
-            "force-update": false
-        },
-        "2.3.2": {
-            "message": "Pause warp when doesn't have warp permission",
-            "force-update": false
-        }
+  "version": "2.3.3",
+  "changelog": {
+    "2.0.0": {
+      "message": "사용 집계 추가와 귓속말 기능 추가",
+      "force-update": true
+    },
+    "2.1.0": {
+      "message": "사용 집계 방식 수정 및 워프,땅,섬이동 오류 수정",
+      "force-update": true
+    },
+    "2.1.1": {
+      "message": "업데이트 체계 변경",
+      "force-update": true
+    },
+    "2.2.0": {
+      "message": "Phar 최적화",
+      "force-update": true
+    },
+    "2.2.1": {
+      "message": "귓속말 기능에 옵션추가, 코드 일부 수정",
+      "force-update": true
+    },
+    "2.2.2": {
+      "message": "Bump API version",
+      "force-update": true
+    },
+    "2.2.4": {
+      "message": "shortage code",
+      "force-update": true
+    },
+    "2.2.5": {
+      "message": "fix error",
+      "force-update": true
+    },
+    "2.2.6": {
+      "message": "Remove CalculatorFunction",
+      "force-update": true
+    },
+    "2.2.7": {
+      "message": "Apply changes for API 4.0.0",
+      "force-update": false
+    },
+    "2.3.0": {
+      "message": "Apply changes for API 4.0.0",
+      "force-update": false
+    },
+    "2.3.1": {
+      "message": "Apply changes for API 4.0.0",
+      "force-update": false
+    },
+    "2.3.2": {
+      "message": "Pause warp when doesn't have warp permission",
+      "force-update": false
     }
+  }
 }

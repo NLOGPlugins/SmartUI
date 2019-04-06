@@ -12,33 +12,33 @@ reboot-when-update: true
 # If you don't write "on", function will turn off.
 # on을 적지 않으면 기능은 꺼집니다.
 toggle:
- spawn: "on"
- warp: "on"
- sendmoney: "on"
- recievemoney: "on"
- calendar: "on"
- speaker: "on"
- calc: "on"
- moveisland: "on"
- moveflat: "on"
- moneyinfo: "on"
- tell: "on"
+  spawn: "on"
+  warp: "on"
+  sendmoney: "on"
+  recievemoney: "on"
+  calendar: "on"
+  speaker: "on"
+  calc: "on"
+  moveisland: "on"
+  moveflat: "on"
+  moneyinfo: "on"
+  tell: "on"
 
 speaker:
- # 필요한 돈
- need-money: 1000
- # 최대 입력 가능한 메세지 길이
- limit-message: 50
+  # 필요한 돈
+  need-money: 1000
+  # 최대 입력 가능한 메세지 길이
+  limit-message: 50
 
 worlds:
- # 적지 않는 월드는 모두 허용입니다. 0보다 작으면 항상 허용입니다.
- # 0일 경우에는 해당 월드에서 사용할 수 없습니다.
- # 예시: pvp 월드에서 2명 이상 있으면 사용을 할 수 없습니다.
- #pvp: 2
+# 적지 않는 월드는 모두 허용입니다. 0보다 작으면 항상 허용입니다.
+# 0일 경우에는 해당 월드에서 사용할 수 없습니다.
+# 예시: pvp 월드에서 2명 이상 있으면 사용을 할 수 없습니다.
+#pvp: 2
 
 # available Parameter
 # "@mymoney" compatible with EconomyAPI(by onebone)
 # "@playername", "@playercount", "@playermaxcount", "@motd", "@mymoney", "@health", "@maxhealth", "@year", "@month", "@day", "@hour"
 message: |-
- 가진 돈: @mymoney
- 닉네임: @playername
+  가진 돈: @mymoney
+  닉네임: @playername

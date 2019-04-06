@@ -2,7 +2,6 @@
 
 /**
  * Copyright (C) 2017-2019   NLOG (엔로그)
-
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
  * published by the Free Software Foundation, either version 3 of the
@@ -62,7 +61,7 @@ class FlatMoveFunction extends SmartUIForm implements NeedPluginInterface {
         $formData = $this->getFormData($player);
         if ($formData === self::NOT_HAVE_FLAT) {
             $player->sendMessage(SmartUI::$prefix . "소유한 평야가 없습니다.");
-        }else{
+        } else {
             $pk->formData = $formData;
             $pk->formId = $this->formId;
 
@@ -104,7 +103,7 @@ class FlatMoveFunction extends SmartUIForm implements NeedPluginInterface {
         $level = $this->owner->getServer()->getLevelManager()->getLevelByName('flat');
         if (!$areaSection instanceof AreaSection) {
             $player->sendMessage(SmartUI::$prefix . "평야가 존재하지 않습니다.");
-        }else{
+        } else {
             $x = $areaSection->get("startX");
             $z = $areaSection->get("startZ");
             $y = $level->getHighestBlockAt($x, $z) + 2;

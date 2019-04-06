@@ -2,7 +2,6 @@
 
 /**
  * Copyright (C) 2017-2019   NLOG (엔로그)
-
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
  * published by the Free Software Foundation, either version 3 of the
@@ -21,8 +20,8 @@ namespace nlog\SmartUI\FormHandlers;
 
 use nlog\SmartUI\SmartUI;
 
-interface NeedPluginInterface{
-	
-	public function CompatibilityWithPlugin(): bool;
-	
+interface NeedPluginInterface {
+
+    public function CompatibilityWithPlugin(): bool;
+
 }
