@@ -21,7 +21,7 @@ namespace nlog\SmartUI\FormHandlers\forms\functions;
 use nlog\SmartUI\FormHandlers\SmartUIForm;
 use nlog\SmartUI\SmartUI;
 use pocketmine\Player;
-use pocketmine\level\Position;
+use pocketmine\world\Position;
 
 class SpawnFunction extends SmartUIForm {
 
@@ -34,7 +34,7 @@ class SpawnFunction extends SmartUIForm {
     }
 
     public function sendPacket(Player $player) {
-        $dlevel = $this->owner->getServer()->getLevelManager()->getDefaultLevel();
+        $dlevel = $this->owner->getServer()->getWorldManager()->getDefaultWorld();
         $pos = new Position($dlevel->getSafeSpawn()->x, $dlevel->getSafeSpawn()->y, $dlevel->getSafeSpawn()->z, $dlevel);
         $player->teleport($pos);
         $player->sendMessage(SmartUI::$prefix . "스폰으로 이동하였습니다.");

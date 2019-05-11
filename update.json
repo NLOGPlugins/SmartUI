@@ -52,6 +52,10 @@
     "2.3.2": {
       "message": "Pause warp when doesn't have warp permission",
       "force-update": false
+    },
+    "2.3.3": {
+      "message": "Apply changes for API 4.0.0",
+      "force-update": false
     }
   }
 }

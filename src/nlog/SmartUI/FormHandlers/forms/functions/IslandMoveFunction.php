@@ -25,7 +25,7 @@ use ifteam\SimpleArea\SimpleArea;
 use nlog\SmartUI\FormHandlers\FormManager;
 use nlog\SmartUI\FormHandlers\SmartUIForm;
 use nlog\SmartUI\SmartUI;
-use pocketmine\level\Position;
+use pocketmine\world\Position;
 use pocketmine\Player;
 use nlog\SmartUI\FormHandlers\NeedPluginInterface;
 use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
@@ -100,7 +100,7 @@ class IslandMoveFunction extends SmartUIForm implements NeedPluginInterface {
         }
         $islandId = $this->islandList[$player->getName()][$result];
         $areaSection = AreaProvider::getInstance()->getAreaToId("island", $islandId);
-        $level = $this->owner->getServer()->getLevelManager()->getLevelByName('island');
+        $level = $this->owner->getServer()->getWorldManager()->getWorldByName('island');
         if (!$areaSection instanceof AreaSection) {
             $player->sendMessage(SmartUI::$prefix . "섬이 존재하지 않습니다.");
         } else {

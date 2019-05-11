@@ -18,7 +18,7 @@
 
 namespace nlog\SmartUI\util;
 
-use pocketmine\level\Level;
+use pocketmine\world\World;
 use pocketmine\utils\Config;
 use pocketmine\Server;
 use pocketmine\Player;
@@ -99,7 +99,7 @@ class Settings {
         return $msg;
     }
 
-    public function canUseInWorld(Level $level): bool {
+    public function canUseInWorld(World $level): bool {
         $return = $this->config->getAll()["worlds"][strtolower($level->getFolderName())] ?? -1;
         if ($return < 0) {
             return true;

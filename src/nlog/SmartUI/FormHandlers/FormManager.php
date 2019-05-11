@@ -149,7 +149,7 @@ class FormManager implements Listener {
     }
 
     public function onInteract(PlayerItemUseEvent $ev) {
-        if (!$this->owner->getSettings()->canUseInWorld($ev->getPlayer()->getLevel())) {
+        if (!$this->owner->getSettings()->canUseInWorld($ev->getPlayer()->getWorld())) {
             $ev->getPlayer()->sendMessage(SmartUI::$prefix . "사용하실 수 없습니다.");
             return;
         }
@@ -159,7 +159,7 @@ class FormManager implements Listener {
     }
 
     public function onTouch(PlayerItemUseEvent $ev) {
-        if (!$this->owner->getSettings()->canUseInWorld($ev->getPlayer()->getLevel())) {
+        if (!$this->owner->getSettings()->canUseInWorld($ev->getPlayer()->getWorld())) {
             $ev->getPlayer()->sendMessage(SmartUI::$prefix . "사용하실 수 없습니다.");
             return;
         }

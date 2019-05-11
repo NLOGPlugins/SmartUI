@@ -25,7 +25,7 @@ use ifteam\SimpleArea\SimpleArea;
 use nlog\SmartUI\FormHandlers\FormManager;
 use nlog\SmartUI\FormHandlers\SmartUIForm;
 use nlog\SmartUI\SmartUI;
-use pocketmine\level\Position;
+use pocketmine\world\Position;
 use pocketmine\Player;
 use nlog\SmartUI\FormHandlers\NeedPluginInterface;
 use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
@@ -100,7 +100,7 @@ class FlatMoveFunction extends SmartUIForm implements NeedPluginInterface {
         }
         $id = $this->flatList[$player->getName()][$result];
         $areaSection = AreaProvider::getInstance()->getAreaToId("flat", $id);
-        $level = $this->owner->getServer()->getLevelManager()->getLevelByName('flat');
+        $level = $this->owner->getServer()->getWorldManager()->getWorldByName('flat');
         if (!$areaSection instanceof AreaSection) {
             $player->sendMessage(SmartUI::$prefix . "평야가 존재하지 않습니다.");
         } else {
