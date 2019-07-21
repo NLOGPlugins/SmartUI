@@ -19,7 +19,7 @@
 namespace nlog\SmartUI\FormHandlers;
 
 use nlog\SmartUI\SmartUI;
-use pocketmine\player\Player;
+use pocketmine\Player;
 
 abstract class SmartUIForm {
 

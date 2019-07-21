@@ -31,12 +31,12 @@ use nlog\SmartUI\SmartUI;
 use nlog\SmartUI\FormHandlers\forms\MainMenu;
 use pocketmine\network\mcpe\protocol\ModalFormResponsePacket;
 use pocketmine\event\server\DataPacketReceiveEvent;
-use pocketmine\player\Player;
+use pocketmine\Player;
 use nlog\SmartUI\FormHandlers\forms\ListMenu;
 use nlog\SmartUI\FormHandlers\forms\functions\SpawnFunction;
 use nlog\SmartUI\FormHandlers\forms\functions\SendMoneyFunction;
 use pocketmine\event\player\PlayerInteractEvent;
-use pocketmine\event\player\PlayerItemUseEvent;
+use pocketmine\event\player\PlayerInteractEvent as PlayerItemUseEvent;
 
 class FormManager implements Listener {
 
@@ -149,21 +149,11 @@ class FormManager implements Listener {
     }
 
     public function onInteract(PlayerItemUseEvent $ev) {
-        if (!$this->owner->getSettings()->canUseInWorld($ev->getPlayer()->getWorld())) {
+        if (!$this->owner->getSettings()->canUseInWorld($ev->getPlayer()->getLevel())) {
             $ev->getPlayer()->sendMessage(SmartUI::$prefix . "사용하실 수 없습니다.");
             return;
         }
-        if ($ev->getItem()->getId() . ":" . $ev->getItem()->getMeta() === $this->owner->getSettings()->getItem()) {
-            $this->MainMenu->sendPacket($ev->getPlayer());
-        }
-    }
-
-    public function onTouch(PlayerItemUseEvent $ev) {
-        if (!$this->owner->getSettings()->canUseInWorld($ev->getPlayer()->getWorld())) {
-            $ev->getPlayer()->sendMessage(SmartUI::$prefix . "사용하실 수 없습니다.");
-            return;
-        }
-        if ($ev->getItem()->getId() . ":" . $ev->getItem()->getMeta() === $this->owner->getSettings()->getItem()) {
+        if ($ev->getItem()->getId() . ":" . $ev->getItem()->getDamage() === $this->owner->getSettings()->getItem()) {
             $this->MainMenu->sendPacket($ev->getPlayer());
         }
     }
@@ -171,7 +161,7 @@ class FormManager implements Listener {
     public function onDataPacketReceive(DataPacketReceiveEvent $ev) {
         $pk = $ev->getPacket();
         if ($pk instanceof ModalFormResponsePacket) {
-            $player = $ev->getOrigin()->getPlayer();
+            $player = $ev->getPlayer();
             if ($this->MainMenu->getFormId() === $pk->formId) {
                 $this->MainMenu->handleReceive($player, json_decode($pk->formData, true));
             } elseif ($this->ListMenu->getFormId() === $pk->formId) {

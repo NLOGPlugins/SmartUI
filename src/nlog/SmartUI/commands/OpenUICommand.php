@@ -21,7 +21,7 @@ namespace nlog\SmartUI\commands;
 use pocketmine\command\PluginCommand;
 use nlog\SmartUI\SmartUI;
 use pocketmine\command\CommandSender;
-use pocketmine\player\Player;
+use pocketmine\Player;
 
 class OpenUICommand extends PluginCommand {
 
@@ -36,7 +36,7 @@ class OpenUICommand extends PluginCommand {
             $sender->sendMessage(SmartUI::$prefix . "인게임에서 실행하세요.");
             return true;
         }
-        if (!$this->getPlugin()->getSettings()->canUseInWorld($sender->getWorld())) {
+        if (!$this->getPlugin()->getSettings()->canUseInWorld($sender->getLevel())) {
             $sender->sendMessage(SmartUI::$prefix . "사용하실 수 없습니다.");
             return true;
         }

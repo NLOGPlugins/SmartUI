@@ -20,7 +20,7 @@ namespace nlog\SmartUI\FormHandlers\forms\functions;
 
 use nlog\SmartUI\FormHandlers\SmartUIForm;
 use nlog\SmartUI\SmartUI;
-use pocketmine\player\Player;
+use pocketmine\Player;
 use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
 
 class ReceiveMoneyFunction extends SmartUIForm {

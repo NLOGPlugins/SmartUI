@@ -22,7 +22,7 @@ use nlog\SmartUI\FormHandlers\NeedPluginInterface;
 use nlog\SmartUI\FormHandlers\SmartUIForm;
 use nlog\SmartUI\SmartUI;
 use onebone\economyapi\EconomyAPI;
-use pocketmine\player\Player;
+use pocketmine\Player;
 use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
 
 class ShowMoneyInfoFunction extends SmartUIForm implements NeedPluginInterface {

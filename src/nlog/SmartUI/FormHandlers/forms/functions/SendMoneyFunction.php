@@ -21,7 +21,7 @@ namespace nlog\SmartUI\FormHandlers\forms\functions;
 use nlog\SmartUI\FormHandlers\SmartUIForm;
 use nlog\SmartUI\SmartUI;
 use nlog\SmartUI\util\Utils;
-use pocketmine\player\Player;
+use pocketmine\Player;
 use nlog\SmartUI\FormHandlers\NeedPluginInterface;
 use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
 use onebone\economyapi\EconomyAPI;

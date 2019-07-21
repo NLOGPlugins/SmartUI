@@ -18,10 +18,10 @@
 
 namespace nlog\SmartUI\util;
 
-use pocketmine\world\World;
+use pocketmine\level\Level as World;
 use pocketmine\utils\Config;
 use pocketmine\Server;
-use pocketmine\player\Player;
+use pocketmine\Player;
 use onebone\economyapi\EconomyAPI;
 use nlog\SmartUI\SmartUI;
 

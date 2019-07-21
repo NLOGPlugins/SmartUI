@@ -19,7 +19,7 @@
 namespace nlog\SmartUI\FormHandlers\forms;
 
 use nlog\SmartUI\FormHandlers\SmartUIForm;
-use pocketmine\player\Player;
+use pocketmine\Player;
 use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
 
 class ListMenu extends SmartUIForm {
