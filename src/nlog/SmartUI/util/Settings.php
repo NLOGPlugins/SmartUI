@@ -21,7 +21,7 @@ namespace nlog\SmartUI\util;
 use pocketmine\world\World;
 use pocketmine\utils\Config;
 use pocketmine\Server;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use onebone\economyapi\EconomyAPI;
 use nlog\SmartUI\SmartUI;
 
@@ -43,7 +43,7 @@ class Settings {
         $this->plugin = $plugin;
         $this->config = new Config($path, Config::YAML);
         if ($this->config->get("version", 0) < SmartUI::SETTING_VERSION) {
-            $plugin->saveResource("settings.yml", true); //TODO: 세팅 파일 업데이트 시 보존
+            $plugin->saveResource("settings.yml", true);
         }
         $this->server = Server::getInstance();
         $this->availableParameter = [

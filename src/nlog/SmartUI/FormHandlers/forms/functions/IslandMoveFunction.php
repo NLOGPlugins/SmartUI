@@ -26,7 +26,7 @@ use nlog\SmartUI\FormHandlers\FormManager;
 use nlog\SmartUI\FormHandlers\SmartUIForm;
 use nlog\SmartUI\SmartUI;
 use pocketmine\world\Position;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use nlog\SmartUI\FormHandlers\NeedPluginInterface;
 use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
 use solo\swarp\SWarp;

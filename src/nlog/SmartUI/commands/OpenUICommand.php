@@ -21,7 +21,7 @@ namespace nlog\SmartUI\commands;
 use pocketmine\command\PluginCommand;
 use nlog\SmartUI\SmartUI;
 use pocketmine\command\CommandSender;
-use pocketmine\Player;
+use pocketmine\player\Player;
 
 class OpenUICommand extends PluginCommand {
 

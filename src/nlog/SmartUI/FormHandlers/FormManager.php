@@ -31,7 +31,7 @@ use nlog\SmartUI\SmartUI;
 use nlog\SmartUI\FormHandlers\forms\MainMenu;
 use pocketmine\network\mcpe\protocol\ModalFormResponsePacket;
 use pocketmine\event\server\DataPacketReceiveEvent;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use nlog\SmartUI\FormHandlers\forms\ListMenu;
 use nlog\SmartUI\FormHandlers\forms\functions\SpawnFunction;
 use nlog\SmartUI\FormHandlers\forms\functions\SendMoneyFunction;

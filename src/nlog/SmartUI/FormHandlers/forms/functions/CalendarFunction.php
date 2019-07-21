@@ -19,7 +19,7 @@
 namespace nlog\SmartUI\FormHandlers\forms\functions;
 
 use nlog\SmartUI\FormHandlers\SmartUIForm;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
 
 class CalendarFunction extends SmartUIForm {
