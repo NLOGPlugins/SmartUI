@@ -3,8 +3,9 @@
 [![License](https://img.shields.io/github/license/nnnlog/SmartUI.svg?label=License)](LICENSE)
 
 ## SmartUI
-NLOGSmartUI's second version
+NLOGSmartUI의 두번째 버전
 * Detail: [SmartUI](https://nnnlog.github.io/projects/smartui)
+* API 3.x : https://github.com/nnnlog/SmartUI/tree/3.x
 
 ### Etc
 * [x] 설정기능(기능 켜기/끄기, UI 메세지 설정, 기타 등등...) 
