@@ -26,7 +26,7 @@ use pocketmine\player\Player;
 class OpenUICommand extends PluginCommand {
 
     public function __construct(SmartUI $owner) {
-        parent::__construct("ui", $owner);
+        parent::__construct("ui", $owner, $owner);
         $this->setPermission(true);
         $this->setDescription("SmartUI를 오픈합니다.");
     }
