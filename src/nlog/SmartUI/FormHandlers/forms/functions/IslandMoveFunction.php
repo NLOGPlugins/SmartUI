@@ -65,7 +65,7 @@ class IslandMoveFunction extends SmartUIForm implements NeedPluginInterface {
             $pk->formData = $formData;
             $pk->formId = $this->formId;
 
-            $player->sendDataPacket($pk);
+            $player->getNetworkSession()->sendDataPacket($pk);
         }
     }
 

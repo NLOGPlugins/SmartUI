@@ -55,7 +55,7 @@ class WarpFunction extends SmartUIForm implements NeedPluginInterface {
         $pk->formId = $this->formId;
         $pk->formData = $this->getFormData($player);
 
-        $player->sendDataPacket($pk);
+        $player->getNetworkSession()->sendDataPacket($pk);
     }
 
     protected function getFormData(Player $player) {

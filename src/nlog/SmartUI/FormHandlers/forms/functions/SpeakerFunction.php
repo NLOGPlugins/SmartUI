@@ -55,7 +55,7 @@ class SpeakerFunction extends SmartUIForm {
         $pk->formData = $this->getFormData($player);
         $pk->formId = $this->formId;
 
-        $player->sendDataPacket($pk);
+        $player->getNetworkSession()->sendDataPacket($pk);
     }
 
     protected function getFormData(Player $player) {
