@@ -31,6 +31,7 @@ use nlog\SmartUI\FormHandlers\NeedPluginInterface;
 use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
 use solo\swarp\SWarp;
 use solo\swarp\Warp;
+use pocketmine\Server;
 
 class IslandMoveFunction extends SmartUIForm implements NeedPluginInterface {
 
@@ -53,7 +54,7 @@ class IslandMoveFunction extends SmartUIForm implements NeedPluginInterface {
     }
 
     public function CompatibilityWithPlugin(): bool {
-        return class_exists(SimpleArea::class, true);
+        return class_exists(SimpleArea::class, true) && Server::getInstance()->getWorldManager()->isWorldLoaded("island");;
     }
 
     public function sendPacket(Player $player) {
